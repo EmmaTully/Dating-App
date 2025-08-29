@@ -248,7 +248,8 @@ function extractKeywords(text: string): string[] {
   // Remove common words
   const stopWords = ['that', 'with', 'have', 'this', 'will', 'your', 'from', 'they', 'know', 'want', 'been', 'good', 'much', 'some', 'time']
   
-  return [...new Set(words.filter(word => !stopWords.includes(word)))]
+  // Use Array.from to avoid iterating Set in older targets
+  return Array.from(new Set(words.filter(word => !stopWords.includes(word))))
 }
 
 function getGenderFromOrientation(orientation: string): string {

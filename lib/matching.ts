@@ -211,7 +211,7 @@ function calculatePreferenceMatch(prefs1: any, prefs2: any, profile1: any, profi
   return factors > 0 ? score / factors : 0
 }
 
-async function calculateValuesOverlap(userId1: string, userId2: string): number {
+async function calculateValuesOverlap(userId1: string, userId2: string): Promise<number> {
   // Get answers from both users
   const { data: answers1 } = await supabase
     .from('answers')
